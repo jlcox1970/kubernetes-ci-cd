@@ -18,12 +18,7 @@ node {
         sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
     
     stage "Push"
-/*
-	docker.withRegistry('http://10.1.1.100:30400')
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-  */
-    sh "docker push ${imageName}"
+    	sh "docker push ${imageName}"
 
     stage "Deploy"
 
