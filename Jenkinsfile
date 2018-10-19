@@ -23,6 +23,10 @@ node {
     stage "Push"
     	sh "docker push ${imageName}"
 
+    stage "Prep for Deployment"
+	sh "kubectl delete service ${appName}"
+	sh "kubectl delete deployment ${appName}"
+
     stage "Deploy"
 
         kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
