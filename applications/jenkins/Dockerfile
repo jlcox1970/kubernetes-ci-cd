@@ -18,6 +18,7 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/so
 apt-get update && apt-get install -y kubectl
 
 # Grant jenkins user group access to /var/run/docker.sock
-RUN addgroup --gid 1001 dsock
+RUN addgroup --gid 956 dsock
 RUN gpasswd -a jenkins dsock 
+RUN echo 10.200.250.17 loki.buildingiq.com >>/etc/hosts
 USER jenkins
