@@ -101,7 +101,7 @@ spec:
     spec:
       serviceAccountName: jenkins
       initContainers:
-              - image: 127.0.0.1:30400/k8s-kubectl:v1.11.2
+      - image: 127.0.0.1:30400/k8s-kubectl:v1.11.2
         name: kubectl-config
         command:
         - "/bin/sh"
